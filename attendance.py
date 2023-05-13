@@ -10,6 +10,9 @@ import datetime
 import time
 import tkinter.font as font
 import pyttsx3
+import os
+
+
 
 # project module
 import show_attendance
@@ -29,15 +32,15 @@ def text_to_speech(user_text):
     engine.runAndWait()
 
 
-haarcasecade_path = "C:\\Users\\patel\\OneDrive\\Documents\\E\\FBAS\\haarcascade_frontalface_default.xml"
+haarcasecade_path = "C:\\Users\kalai\\PycharmProjects\\Attendance-Management-system-using-face-recognition\\haarcascade_frontalface_default.xml"
 trainimagelabel_path = (
-    "C:\\Users\\patel\\OneDrive\\Documents\\E\\FBAS\\TrainingImageLabel\\Trainner.yml"
+    "C:\\Users\\kalai\\PycharmProjects\\Attendance-Management-system-using-face-recognition\\TrainingImageLabel\\Trainner.yml"
 )
-trainimage_path = "C:\\Users\\patel\\OneDrive\\Documents\\E\\FBAS\\TrainingImage"
+trainimage_path = "C:\\Users\\kalai\\PycharmProjects\\Attendance-Management-system-using-face-recognition\\TrainingImage"
 studentdetail_path = (
-    "C:\\Users\\patel\\OneDrive\\Documents\\E\\FBAS\\StudentDetails\\studentdetails.csv"
+    "C:\\Users\\kalai\\PycharmProjects\\Attendance-Management-system-using-face-recognition\\StudentDetails\\studentdetails.csv"
 )
-attendance_path = "C:\\Users\\patel\\OneDrive\\Documents\\E\\FBAS\\Attendance"
+attendance_path = "C:\\Users\\kalai\\PycharmProjects\\Attendance-Management-system-using-face-recognition\\Attendance"
 
 
 window = Tk()
@@ -47,8 +50,68 @@ dialog_title = "QUIT"
 dialog_text = "Are you sure want to close?"
 window.configure(background="black")
 
-
+subject_names="spm","mad","project","mm","bd";
 # to destroy screen
+
+
+# Set the name of the subject
+
+
+subject_name = "spm"
+
+# Set the path to the folder where you want to create the new subject folder
+folder_path = "C:\\Users\\kalai\\PycharmProjects\\Attendance-Management-system-using-face-recognition\\Attendance\\spm"
+
+# Create the new subject folder
+new_folder_path = os.path.join(folder_path, subject_name)
+os.makedirs(new_folder_path)
+
+
+
+subject_name = "bd"
+
+# Set the path to the folder where you want to create the new subject folder
+folder_path = "C:\\Users\\kalai\\PycharmProjects\\Attendance-Management-system-using-face-recognition\\Attendance\\bd"
+
+# Create the new subject folder
+new_folder_path = os.path.join(folder_path, subject_name)
+os.makedirs(new_folder_path)
+
+
+subject_name = "mad"
+
+# Set the path to the folder where you want to create the new subject folder
+folder_path = "C:\\Users\\kalai\\PycharmProjects\\Attendance-Management-system-using-face-recognition\\Attendance\\mad"
+
+# Create the new subject folder
+new_folder_path = os.path.join(folder_path, subject_name)
+os.makedirs(new_folder_path)
+
+
+subject_name = "mm"
+
+# Set the path to the folder where you want to create the new subject folder
+folder_path = "C:\\Users\\kalai\\PycharmProjects\\Attendance-Management-system-using-face-recognition\\Attendance\\mm"
+
+# Create the new subject folder
+new_folder_path = os.path.join(folder_path, subject_name)
+os.makedirs(new_folder_path)
+
+
+
+
+subject_name = "Project"
+
+# Set the path to the folder where you want to create the new subject folder
+folder_path = "C:\\Users\\kalai\\PycharmProjects\\Attendance-Management-system-using-face-recognition\\Attendance\\Project"
+
+# Create the new subject folder
+new_folder_path = os.path.join(folder_path, subject_name)
+os.makedirs(new_folder_path)
+
+
+
+
 def del_sc1():
     sc1.destroy()
 
@@ -71,7 +134,7 @@ def err_screen():
     ).pack()
     tk.Button(
         sc1,
-        text="OK",
+       text="OK",
         command=del_sc1,
         fg="yellow",
         bg="black",
@@ -92,6 +155,7 @@ def testVal(inStr, acttyp):
 logo = Image.open("UI_Image/0001.png")
 logo = logo.resize((50, 47), Image.ANTIALIAS)
 logo1 = ImageTk.PhotoImage(logo)
+
 titl = tk.Label(window, bg="black", relief=RIDGE, bd=10, font=("arial", 35))
 titl.pack(fill=X)
 l1 = tk.Label(window, image=logo1, bg="black",)
@@ -306,6 +370,7 @@ def automatic_attedance():
     automaticAttedance.subjectChoose(text_to_speech)
 
 
+
 r = tk.Button(
     window,
     text="Take Attendance",
@@ -322,7 +387,6 @@ r.place(x=600, y=520)
 
 def view_attendance():
     show_attendance.subjectchoose(text_to_speech)
-
 
 r = tk.Button(
     window,
@@ -348,5 +412,7 @@ r = tk.Button(
     width=17,
 )
 r.place(x=600, y=660)
+
+
 
 window.mainloop()

@@ -6,6 +6,7 @@ import csv
 import tkinter as tk
 from tkinter import *
 
+
 def subjectchoose(text_to_speech):
     def calculate_attendance():
         Subject = tx.get()
@@ -13,10 +14,10 @@ def subjectchoose(text_to_speech):
             t='Please enter the subject name.'
             text_to_speech(t)
         os.chdir(
-            f"C:\\Users\\patel\\OneDrive\\Documents\\E\\FBAS\\Attendance\\{Subject}"
+            f"C:\\Users\\kalai\\PycharmProjects\\Attendance-Management-system-using-face-recognition\\Attendance\\{Subject}"
         )
         filenames = glob(
-            f"C:\\Users\\patel\\OneDrive\\Documents\\E\\FBAS\\Attendance\\{Subject}\\{Subject}*.csv"
+            f"C:\\Users\\kalai\\PycharmProjects\\Attendance-Management-system-using-face-recognition\\Attendance\\{Subject}\\{Subject}*.csv"
         )
         df = [pd.read_csv(f) for f in filenames]
         newdf = df[0]
@@ -32,7 +33,7 @@ def subjectchoose(text_to_speech):
         root = tkinter.Tk()
         root.title("Attendance of "+Subject)
         root.configure(background="black")
-        cs = f"C:\\Users\\patel\\OneDrive\\Documents\\E\\FBAS\\Attendance\\{Subject}\\attendance.csv"
+        cs = f"C:\\Users\\kalai\\PycharmProjects\\Attendance-Management-system-using-face-recognition\\Attendance\\{Subject}\\attendance.csv"
         with open(cs) as file:
             reader = csv.reader(file)
             r = 0
@@ -86,7 +87,7 @@ def subjectchoose(text_to_speech):
             text_to_speech(t)
         else:
             os.startfile(
-            f"C:\\Users\\patel\\OneDrive\\Documents\\E\\FBAS\\Attendance\\{sub}"
+            f"C:\\Users\\kalai\\PycharmProjects\\Attendance-Management-system-using-face-recognition\\Attendance\\{sub}"
             )
 
 
